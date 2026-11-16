@@ -1,0 +1,112 @@
+/* Paradise, square: the desktop's palette, 2px borders, no radius, no effects. */
+@font-face {
+  font-family: 'Maple Mono';
+  font-weight: 400;
+  font-display: block;
+  src: local('Maple Mono'), url('fonts/MapleMono-Regular.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #151515;
+  --border: #424242;
+  --fg: #e8e3e3;
+  --muted: #a39d9d;
+  --blue: #8da3b9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font: 11pt/1.4 'Maple Mono', monospace;
+}
+
+::selection {
+  background: var(--blue);
+  color: var(--bg);
+}
+
+/* The greeter's column: centred, 12px between items. */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px;
+}
+
+#clock {
+  font-size: 72pt;
+  line-height: 1.2;
+}
+
+#date {
+  margin-bottom: 36px;
+  color: var(--muted);
+}
+
+#q,
+#links {
+  width: min(360px, 100%);
+}
+
+#q {
+  height: 36px;
+  padding: 0 8px;
+  border: 2px solid var(--border);
+  border-radius: 0;
+  outline: 0;
+  background: var(--bg);
+  color: var(--fg);
+  caret-color: var(--fg);
+  font: inherit;
+}
+
+#q:focus {
+  border-color: var(--blue);
+}
+
+#links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#links a {
+  height: 28px;
+  overflow: hidden;
+  color: var(--muted);
+  line-height: 28px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 150ms ease-out, background-color 150ms ease-out;
+}
+
+#links a:hover {
+  color: var(--fg);
+}
+
+/* While typing: links that don't match dim, the one Enter opens inverts. */
+#links a.miss {
+  color: var(--border);
+}
+
+#links a.selected {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #links a {
+    transition: none;
+  }
+}

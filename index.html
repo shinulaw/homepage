@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <!-- Dark Reader would recolour the palette. -->
+    <meta name="darkreader-lock" />
+    <title>home</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <time id="clock"></time>
+      <p id="date"></p>
+      <input id="q" type="text" autofocus autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Filter links or search" />
+      <nav id="links" aria-label="Links"></nav>
+    </main>
+    <script src="links.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
